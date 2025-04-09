@@ -16,6 +16,7 @@ WORKDIR ${APP_DIR}
 
 # setup python environ
 COPY ./requirements.txt ${APP_DIR}
+RUN pip install wheel==0.45.1
 RUN pip install -r ${APP_DIR}/requirements.txt
 
 # copy app files
