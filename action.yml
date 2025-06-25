@@ -1,38 +1,41 @@
-name: 'Snowflake Query Action'
-author: 'anecdotes.ai'
-description: 'This action lets running a list of SQL queries on your Snowflake DB.'
+name: "Snowflake Query Action"
+author: "anecdotes.ai"
+description: "This action lets running a list of SQL queries on your Snowflake DB."
 
 branding:
-  icon: 'database'
-  color: 'blue'
+  icon: "database"
+  color: "blue"
 
 inputs:
   snowflake_username:
-    description: 'Username for Snowflake DB'
+    description: "Username for Snowflake DB"
     required: true
-  snowflake_password:
-    description: 'Password for Snowflake DB'
+  snowflake_private_key:
+    description: "Private key for Snowflake DB"
     required: true
+  snowflake_private_key_passphrase:
+    description: "Passphrase for private key"
+    required: false
   snowflake_account:
-    description: 'Account name for Snowflake DB. Your account name is the full/entire string to the left of snowflakecomputing.com.'
+    description: "Account name for Snowflake DB. Your account name is the full/entire string to the left of snowflakecomputing.com."
     required: true
   snowflake_warehouse:
-    description: 'Warehouse as context'
+    description: "Warehouse as context"
     required: true
   snowflake_role:
-    description: 'Set user role'
+    description: "Set user role"
     required: false
   queries:
-    description: 'List of SQL queries, seperated by ;'
+    description: "List of SQL queries, seperated by ;"
     required: true
   sync:
-    description: 'Whether to run the queries sync (default is async)'
+    description: "Whether to run the queries sync (default is async)"
     required: false
 
 outputs:
   queries_results:
-    description: 'Json encoded as base64, containing all queries results'
-    
+    description: "Json encoded as base64, containing all queries results"
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
