@@ -29,3 +29,4 @@ six==1.16.0
 urllib3==1.26.13
 snowflake-connector-python==3.3.0
 python-dotenv==1.0.0
+wheel==0.45.1

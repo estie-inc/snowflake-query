@@ -37,7 +37,8 @@ steps:
         snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
         snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
         snowflake_username: ${{ secrets.SNOWFLAKE_USER }}
-        snowflake_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+        snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+        snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
         queries: 'call system$wait(5);
                   select CURRENT_VERSION();
                   select * from "<TABLE_NAME>" where <column_name>=''<value>'''
@@ -63,7 +64,7 @@ steps:
       snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
       snowflake_username: ${{ secrets.SNOWFLAKE_USER }}
-      snowflake_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      snowflake_private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
       queries: 'DELETE FROM  "${{matrix.table}}"'
 ```
-

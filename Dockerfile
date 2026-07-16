@@ -7,7 +7,8 @@ RUN apt-get update && \
 # Configure environments vars. Overriden by GitHub Actions
 ENV INPUT_SNOWFLAKE_ACCOUNT=
 ENV INPUT_SNOWFLAKE_USERNAME=
-ENV INPUT_SNOWFLAKE_PASSWORD=
+ENV INPUT_SNOWFLAKE_PRIVATE_KEY=
+ENV INPUT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=
 ENV INPUT_SNOWFLAKE_WAREHOUSE=
 ENV INPUT_QUERIES=
 ENV APP_DIR=/app
@@ -16,6 +17,7 @@ WORKDIR ${APP_DIR}
 
 # setup python environ
 COPY ./requirements.txt ${APP_DIR}
+RUN pip install wheel==0.45.1
 RUN pip install -r ${APP_DIR}/requirements.txt
 
 # copy app files
