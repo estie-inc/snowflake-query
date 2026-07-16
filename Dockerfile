@@ -22,7 +22,7 @@ RUN pip install -r ${APP_DIR}/requirements.txt
 
 # copy app files
 COPY . ./
-RUN useradd -ms /bin/bash anecdotes
+RUN useradd -ms /bin/bash -u 1001 anecdotes
 RUN chown -R anecdotes:anecdotes /app
 USER anecdotes
 # command to run in container start
