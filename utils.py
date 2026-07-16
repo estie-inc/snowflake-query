@@ -1,12 +1,13 @@
 import asyncio
-from os import system
+from os import environ
 from typing import List
 
 from snowflake_connector import QueryResult
 
 
 def set_github_action_output(var_name, value):
-    system(f'echo "::set-output name={{var_name}}::"{value}""')
+    with open(environ['GITHUB_OUTPUT'], 'a') as f:
+        f.write(f"{var_name}={value}\n")
 
 
 async def gather_all_results(query_result_list: List[QueryResult]) -> dict:
