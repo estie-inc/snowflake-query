@@ -1,8 +1,6 @@
 FROM python:3.10-slim
 
-RUN apt-get update && \
-    apt-get install -y git && \
-    python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 
 # Configure environments vars. Overriden by GitHub Actions
 ENV INPUT_SNOWFLAKE_ACCOUNT=
